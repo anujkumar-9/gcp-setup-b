@@ -1,11 +1,8 @@
 FROM nginx:alpine
 
-COPY index.html \
-/usr/share/nginx/html/index.html
+COPY index.html /usr/share/nginx/html/index.html
 
-RUN sed -i \
-'s/listen 80;/listen 8080;/g' \
-/etc/nginx/conf.d/default.conf
+RUN sed -i 's/listen       80;/listen 8080;/g' /etc/nginx/conf.d/default.conf || true
 
 EXPOSE 8080
 
